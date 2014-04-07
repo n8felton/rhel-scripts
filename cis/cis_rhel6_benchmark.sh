@@ -4,7 +4,7 @@
 
 # Detect and remove legacy services (CIS 2.1)
 for service in telnet-server telnet rsh-server rsh ypbind ypserv tftp tftp-server talk talk-server xinetd; do
-	rpm -q $service && yum erase $service
+	rpm -q $service && yum -y erase $service
 done
 unset service
 
@@ -23,32 +23,32 @@ chkconfig --list avahi-daemon | grep on && chkconfig avahi-daemon off && chkconf
 chkconfig --list cups | grep on && chkconfig cups off && chkconfig --list cups
 
 # 3.5 Remove DHCP Server
-rpm -q dhcp && yum erase dhcp
+rpm -q dhcp && yum -y erase dhcp
 
 # 3.7 Remove LDAP
-rpm -q openldap-servers && yum erase openldap-servers
-rpm -q openldap-clients && yum erase openldap-clients
+rpm -q openldap-servers && yum -y erase openldap-servers
+rpm -q openldap-clients && yum -y erase openldap-clients
 
 # 3.9 Remove DNS Server
-rpm -q bind && yum erase bind
+rpm -q bind && yum -y erase bind
 
 # 3.10 Remove FTP Server
-rpm -q vsftpd && yum erase vsftpd
+rpm -q vsftpd && yum -y erase vsftpd
 
 # 3.11 Remove HTTP Server
-rpm -q httpd && yum erase httpd
+rpm -q httpd && yum -y erase httpd
 
 # 3.12 Remove Dovecot (IMAP and POP3 services)
-rpm -q dovecot && yum erase dovecot
+rpm -q dovecot && yum -y erase dovecot
 
 # 3.13 Remove Samba
-rpm -q samba && yum erase samba
+rpm -q samba && yum -y erase samba
 
 # 3.14 Remove HTTP Proxy Server
-rpm -q squid && yum erase squid
+rpm -q squid && yum -y erase squid
 
 # 3.15 Remove SNMP Server
-rpm -q net-snmp && yum erase net-snmp
+rpm -q net-snmp && yum -y erase net-snmp
 
 # 6.2 Configure SSH
 # 6.2.1 Set SSH Protocol to 2
